@@ -21,20 +21,28 @@
 }
 
 .cardList {
-  padding: 20px;
+  padding: 15px;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  justify-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
 
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 .card {
-  width: 30vw;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
   border: 1px solid black;
   border-radius: 5px;
-  gap: 10px;
 
   &__a {
     text-decoration: none;
@@ -43,11 +51,10 @@
   }
 
   &__title {
-  text-transform: uppercase;
+    text-transform: uppercase;
   }
 
   &__img {
     width: 100%;
   }
-
 }
