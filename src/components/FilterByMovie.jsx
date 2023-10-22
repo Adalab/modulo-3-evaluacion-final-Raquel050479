@@ -5,13 +5,13 @@ const FilterByMovie = ({ nameMovie, handleChange }) => {
 
   return (
     <>
-      <label className='form__label' htmlFor='searchMovie'>
+      <label className='form__label' htmlFor='nameMovie'>
         Movie:
         <input
           className='form__input'
           type='text'
-          name='searchMovie'
-          id='searchMovie'
+          name='nameMovie'
+          id='nameMovie'
           value={nameMovie}
           onChange={handleInput}
         />

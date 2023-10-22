@@ -13,18 +13,18 @@ const FilterByYear = ({ yearMovie, handleSelect, years }) => {
 
   return (
     <>
-      <label className='form__label' htmlFor='year'>
-        Year:{' '}
+      <label className='form__label' htmlFor='yearMovie'>
+        Year:
+        <select
+          className='form__select'
+          name='yearMovie'
+          id='yearMovie'
+          value={yearMovie}
+          onChange={handleSelectYear}
+        >
+          <option value=''>All</option> {renderYears()}
+        </select>
       </label>
-      <select
-        className='form__select'
-        name='searchYear'
-        id='searchYear'
-        value={yearMovie}
-        onChange={handleSelectYear}
-      >
-        <option value='all'>All</option> {renderYears()}
-      </select>
     </>
   );
 };
