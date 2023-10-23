@@ -21,10 +21,10 @@
     margin: 15px;
     text-transform: uppercase;
     text-align: center;
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: 768px) {
       font-size: 1.5rem;
     }
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width: 1024px) {
       font-size: 2rem;
     }
   }
@@ -135,22 +135,63 @@
 .cardDetail {
   background-color: darksalmon;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   width: 250px;
-  text-align: center;
-  margin: 15px;
+  margin: auto;
   padding: 10px;
   border: 1px solid black;
   border-radius: 10px;
 
+  @media screen and (min-width: 768px) {
+    width: 500px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 600px;
+
+  }
+
   &__img {
     width: 100px;
     border: 2px solid white;
+    margin: 10px 60px;
+    @media screen and (min-width: 768px){
+      width: 200px;
+      margin: 10px;
+    }
+
   }
+
+  &__title,
+  &__full-line,
+  &__director,
+  &__audio {
+    font-size: 15px;
+    margin: 2px;
+    text-decoration: none;
+    color: black;
+
+    @media screen and (min-width: 768px){
+      margin: 20px 10px;
+      font-size: 17px;
+    }
+  }
+
+  &__i {
+    color: purple;
+    margin-right: 10px;
+  }
+
+  &__a {
+    margin: 10px;
+
+  }
+
 }
 
 .footer {
-  border-top: 1px solid grey;
   padding: 20px;
   &__heart {
     color: purple;
