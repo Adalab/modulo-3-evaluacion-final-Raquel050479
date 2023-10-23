@@ -15,8 +15,10 @@ const App = () => {
   const [yearMovie, setYearMovie] = useState('');
 
   useEffect(() => {
-    //const dataLs = ls.get('resultApi', null);
     if (resultApi.length === 0) {
+      return <li>
+        <p>NO coincide</p>
+      </li>;
       getDataFromApi().then((cleanData) => {
         setResultApi(cleanData);
         ls.set('resultApi', cleanData);
@@ -71,7 +73,12 @@ const App = () => {
                   handleSelect={handleSelect}
                   years={getYears()}
                 />
-                <MovieSceneList resultApi={filteredScenes} />
+                {filteredScenes.length === 0 ? (
+                  <p className='message'>No existen coincidencias con {nameMovie}, prueba de nuevo.</p>
+                ) : (   <MovieSceneList resultApi={filteredScenes} />
+
+                )}
+             
               </>
             }
           />
