@@ -1,6 +1,5 @@
-// Fichero src/components/App.jsx
 import { useEffect, useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import { useLocation, matchPath } from 'react-router';
 import '../styles/App.scss';
 import getDataFromApi from '../services/api';
@@ -8,7 +7,7 @@ import MovieSceneList from './MovieSceneList';
 import ls from '../services/localStorage';
 import Filters from './Filters';
 
-import MovieSceneItem from './MovieSceneItem';
+import MovieSceneDetail from './MovieSceneDetail';
 
 const App = () => {
   const [resultApi, setResultApi] = useState(ls.get('resultApi', []));
@@ -76,15 +75,14 @@ const App = () => {
               </>
             }
           />
-      {/*    <Route
+          <Route
             path='/scene/:id'
             element={
               <>
-                <MovieSceneItem scene={sceneData} />
-                <Link to=''>Back</Link>
+                <MovieSceneDetail scene={sceneData} />
               </>
             }
-          /> */}
+          />
         </Routes>
       </main>
       <footer className='footer'>

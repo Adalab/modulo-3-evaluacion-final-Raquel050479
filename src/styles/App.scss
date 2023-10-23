@@ -20,6 +20,13 @@
     font-size: 1.2rem;
     margin: 15px;
     text-transform: uppercase;
+    text-align: center;
+    @media screen and (min-width: 768px){
+      font-size: 1.5rem;
+    }
+    @media screen and (min-width: 1024px){
+      font-size: 2rem;
+    }
   }
 }
 
@@ -79,16 +86,19 @@
   @media screen and (min-width: 768px) {
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 30px;
+    margin: 10px;
   }
   @media screen and (min-width: 1024px) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 30px;
+    margin: 15px;
   }
 }
 
 .card {
   background-color: darksalmon;
   width: 250px;
+  //height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,9 +132,25 @@
   }
 }
 
+.cardDetail {
+  background-color: darksalmon;
+  display: flex;
+  align-items: center;
+  width: 250px;
+  text-align: center;
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+
+  &__img {
+    width: 100px;
+    border: 2px solid white;
+  }
+}
+
 .footer {
   border-top: 1px solid grey;
-  text-align: center;
   padding: 20px;
   &__heart {
     color: purple;

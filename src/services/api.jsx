@@ -13,6 +13,8 @@ const getDataFromApi = () => {
           year: scene.year,
           full_line: scene.full_line,
           poster: scene.poster,
+          director: scene.director,
+          audio: scene.audio
         };
       });
       return cleanData;
