@@ -7,32 +7,49 @@
 }
 
 .container {
-  background-color: cadetblue;
+  background-color: indianred;
 }
 
 .header {
+  background-color: cadetblue;
   width: 100%;
   //height: 300px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 20px;
+  }
   &__title {
+    color: antiquewhite;
     font-size: 25px;
     margin: 15px;
     text-transform: uppercase;
     text-align: center;
     @media screen and (min-width: 768px) {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
     @media screen and (min-width: 1024px) {
-      font-size: 2rem;
+      font-size: 2.4rem;
+    }
+  }
+
+  &__pic {
+    width: 250px;
+    margin-left: 20px;
+    border-style: dotted;
+    margin-bottom: 20px;
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      margin-top: 20px;
     }
   }
 }
 
 .form {
-  //background-color: darkmagenta;
-  padding: 10px;
+  padding: 20px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,7 +78,7 @@
   }
 
   &__label {
-    color: aliceblue;
+    color: antiquewhite;
   }
 
   &__input,
@@ -118,6 +135,9 @@
   @media screen and (min-width: 768px) {
     width: 220px;
   }
+  @media screen and (min-width: 1200px) {
+    width: 280px;
+  }
 
   &__a {
     text-decoration: none;
@@ -145,7 +165,7 @@
   display: flex;
   flex-direction: column;
   width: 250px;
-  margin: auto;
+  margin: 30px auto 10px auto;
   padding: 10px;
   border: 1px solid black;
   border-radius: 10px;
@@ -157,7 +177,7 @@
   }
 
   @media screen and (min-width: 1024px) {
-    width: 600px;
+    width: 700px;
   }
 
   &__img {
@@ -182,6 +202,9 @@
     @media screen and (min-width: 768px) {
       margin: 20px 10px;
       font-size: 17px;
+    }
+    @media screen and (min-width: 1024px) {
+      font-size: 20px;
     }
   }
 

@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useLocation, matchPath } from 'react-router';
 import '../styles/App.scss';
 import getDataFromApi from '../services/api';
-import MovieSceneList from './MovieSceneList';
+import Filters from './form/Filters';
+import MovieSceneList from './scenes/MovieSceneList';
+import MovieSceneDetail from './scenes/MovieSceneDetail';
 import ls from '../services/localStorage';
-import Filters from './Filters';
-
-import MovieSceneDetail from './MovieSceneDetail';
+import Header from './Header';
+import Footer from './Footer';
 
 const App = () => {
   const [resultApi, setResultApi] = useState(ls.get('resultApi', []));
@@ -16,9 +17,11 @@ const App = () => {
 
   useEffect(() => {
     if (resultApi.length === 0) {
-      return <li>
-        <p>NO coincide</p>
-      </li>;
+      return (
+        <li>
+          <p>NO coincide</p>
+        </li>
+      );
       getDataFromApi().then((cleanData) => {
         setResultApi(cleanData);
         ls.set('resultApi', cleanData);
@@ -57,9 +60,7 @@ const App = () => {
 
   return (
     <div className='container'>
-      <header className='header'>
-        <h1 className='header__title'>Owen Wilson's "wow"</h1>
-      </header>
+      <Header/>
       <main className='main'>
         <Routes>
           <Route
@@ -74,11 +75,12 @@ const App = () => {
                   years={getYears()}
                 />
                 {filteredScenes.length === 0 ? (
-                  <p className='message'>No existen coincidencias con {nameMovie}, prueba de nuevo.</p>
-                ) : (   <MovieSceneList resultApi={filteredScenes} />
-
+                  <p className='message'>
+                    No existen coincidencias con {nameMovie}, prueba de nuevo.
+                  </p>
+                ) : (
+                  <MovieSceneList resultApi={filteredScenes} />
                 )}
-             
               </>
             }
           />
@@ -92,12 +94,7 @@ const App = () => {
           />
         </Routes>
       </main>
-      <footer className='footer'>
-        <p className='footer__title'>
-          &copy; 2023 - Rachel's project{' '}
-          <span className='footer__heart'>&#10084;</span>
-        </p>
-      </footer>
+      <Footer/>
     </div>
   );
 };
