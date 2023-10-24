@@ -16,17 +16,12 @@ const App = () => {
   const [yearMovie, setYearMovie] = useState('');
 
   useEffect(() => {
-    if (resultApi.length === 0) {
-      return (
-        <li>
-          <p>NO coincide</p>
-        </li>
-      );
+
       getDataFromApi().then((cleanData) => {
         setResultApi(cleanData);
         ls.set('resultApi', cleanData);
       });
-    }
+    
   }, []);
 
   const handleChange = (value) => {
