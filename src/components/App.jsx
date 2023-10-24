@@ -16,12 +16,10 @@ const App = () => {
   const [yearMovie, setYearMovie] = useState('');
 
   useEffect(() => {
-
-      getDataFromApi().then((cleanData) => {
-        setResultApi(cleanData);
-        ls.set('resultApi', cleanData);
-      });
-    
+    getDataFromApi().then((cleanData) => {
+      setResultApi(cleanData);
+      ls.set('resultApi', cleanData);
+    });
   }, []);
 
   const handleChange = (value) => {
@@ -55,7 +53,7 @@ const App = () => {
 
   return (
     <div className='container'>
-      <Header/>
+      <Header />
       <main className='main'>
         <Routes>
           <Route
@@ -89,7 +87,7 @@ const App = () => {
           />
         </Routes>
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
