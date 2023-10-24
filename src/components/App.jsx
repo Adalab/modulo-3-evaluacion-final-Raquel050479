@@ -16,10 +16,12 @@ const App = () => {
   const [yearMovie, setYearMovie] = useState('');
 
   useEffect(() => {
-    getDataFromApi().then((cleanData) => {
-      setResultApi(cleanData);
-      ls.set('resultApi', cleanData);
-    });
+    if (resultApi.length === 0) {
+      getDataFromApi().then((cleanData) => {
+        setResultApi(cleanData);
+        ls.set('resultApi', cleanData);
+      });
+    }
   }, []);
 
   const handleChange = (value) => {
@@ -31,7 +33,9 @@ const App = () => {
   };
 
   const filteredScenes = resultApi
-    .filter((scene) => scene.movie.toLowerCase().includes(nameMovie))
+    .filter((scene) =>
+      scene.movie.toLowerCase().includes(nameMovie.toLowerCase())
+    )
     .filter((scene) => {
       if (yearMovie === '') {
         return true;
